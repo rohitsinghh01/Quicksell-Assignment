@@ -4,7 +4,7 @@ import './column.css';
 import { ReactComponent as Add } from '../../assests/Icons/add.svg';
 import { ReactComponent as ThreeDotIcon } from '../../assests/Icons/3-dot-menu.svg';
 import { getPriorityIcon, getStatusIcon } from '../../utils/helper';
-import UserIcon from '../UserIcon';
+import UserIcon from '../UserIcon/UserIcon';
 
 function Column({ tickets, grouping, groupBy, userIdToData }) {
   const title = useMemo(() => {

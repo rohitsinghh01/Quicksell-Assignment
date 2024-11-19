@@ -1,4 +1,3 @@
-import { ReactComponent as Backlog } from '../assests/Icons/Backlog.svg';
 import { ReactComponent as Progress } from '../assests/Icons/in-progress.svg';
 import { ReactComponent as Done } from '../assests/Icons/Done.svg';
 import { ReactComponent as Cancelled } from '../assests/Icons/Cancelled.svg';
@@ -8,6 +7,8 @@ import { ReactComponent as MediumPriority } from '../assests/Icons/Img-MediumPri
 import { ReactComponent as NoPriority } from '../assests/Icons/No-priority.svg';
 import { ReactComponent as UrgentColor } from '../assests/Icons/SVG-UrgentPrioritycolour.svg';
 import { ReactComponent as Urgent } from '../assests/Icons/SVG-UrgentPrioritygrey.svg';
+import { ReactComponent as ToDo } from '../assests/Icons/To-do.svg';
+import { ReactComponent as Backlog } from '../assests/Icons/Backlog.svg';
 
 
 export const getPriorityIcon = (priority) => {
@@ -30,8 +31,9 @@ export const getPriorityIcon = (priority) => {
 export const getStatusIcon = (status) => {
   switch (status) {
     case 'Backlog':
-    case 'Todo':
       return <Backlog />;
+    case 'Todo':
+      return <ToDo />;
     case 'In progress':
       return <Progress/>;
     case 'Done':

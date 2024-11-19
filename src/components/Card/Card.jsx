@@ -1,6 +1,6 @@
 import React from 'react';
 import './card.css';
-import UserIcon from '../UserIcon';
+import UserIcon from '../UserIcon/UserIcon';
 import { ReactComponent as ThreeDotIcon } from '../../assests/Icons/3-dot-menu.svg'; 
 import { getStatusIcon } from '../../utils/helper';
 

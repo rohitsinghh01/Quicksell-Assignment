@@ -1,25 +1,24 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import './dropdown.css';
-import { ReactComponent as Display } from '../../assests/Icons/Display.svg'; 
-import { ReactComponent as Down } from '../../assests/Icons/down.svg'; 
+import { ReactComponent as DisplayIcon } from '../../assests/Icons/Display.svg';
+import { ReactComponent as DownIcon } from '../../assests/Icons/down.svg';
 
-const DropdownDisplay = ({ group, setGroup, order, setOrder }) => {
+function DisplayDropdown({ grouping, setGrouping, ordering, setOrdering }) {
+  const [visible, setVisible] = useState(false);
   const componentRef = useRef(null);
 
-  const [visible, setVisible] = useState(false);
-
-  const openDropdown = useCallback(() => {
-    setVisible(true);
+  const toggleDropdown = useCallback(() => {
+    setVisible((prevState) => !prevState);
   }, []);
-
-  const onGroupChange = useCallback((e) => setGroup(e.target.value), []);
-  const onOrderChange = useCallback((e) => setOrder(e.target.value), []);
 
   const handleClickOutside = useCallback((event) => {
     if (componentRef.current && !componentRef.current.contains(event.target)) {
       setVisible(false);
     }
   }, []);
+
+  const onGroupingChange = useCallback((e) => setGrouping(e.target.value), []);
+  const onOrderingChange = useCallback((e) => setOrdering(e.target.value), []);
 
   useEffect(() => {
     document.addEventListener('click', handleClickOutside);
@@ -30,35 +29,33 @@ const DropdownDisplay = ({ group, setGroup, order, setOrder }) => {
   }, [handleClickOutside]);
 
   return (
-    <div className='dropdown-wrapper' ref={componentRef}>
-      <div className='dropdown-header' onClick={openDropdown}>
-        <Display />
-        <div className='dropdown-title'>Display</div>
-        <Down/>
+    <div className='display-dropdown' ref={componentRef}>
+      <div className='dropdown-label-container' onClick={toggleDropdown}>
+        <DisplayIcon />
+        <div className='dropdown-label'>Display</div>
+        <DownIcon />
       </div>
-      <div
-        className={`dropdown-menu ${visible ? 'dropdown-menu-visible' : ''}`}
-      >
-        <div className='dropdown-menu-row'>
-          <div className='dropdown-menu-label'>Grouping</div>
+      <div className={`dropdown-content-container ${visible ? 'visible' : ''}`}>
+        <div className='dropdown-content-row'>
+          <div className='dropdown-content-label'>Grouping</div>
           <select
             name='grouping'
             id='grouping'
-            value={group}
-            onChange={onGroupChange}
+            value={grouping}
+            onChange={onGroupingChange}
           >
             <option value='status'>Status</option>
             <option value='user'>User</option>
             <option value='priority'>Priority</option>
           </select>
         </div>
-        <div className='dropdown-menu-row'>
-          <div className='dropdown-menu-label'>Ordering</div>
+        <div className='dropdown-content-row'>
+          <div className='dropdown-content-label'>Ordering</div>
           <select
             name='ordering'
             id='ordering'
-            value={order}
-            onChange={onOrderChange}
+            value={ordering}
+            onChange={onOrderingChange}
           >
             <option value='priority'>Priority</option>
             <option value='title'>Title</option>
@@ -67,6 +64,6 @@ const DropdownDisplay = ({ group, setGroup, order, setOrder }) => {
       </div>
     </div>
   );
-};
+}
 
-export default DropdownDisplay;
+export default DisplayDropdown;

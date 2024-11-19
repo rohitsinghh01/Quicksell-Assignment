@@ -23,7 +23,7 @@ export const groupTicketsByPriority = (tickets) => {
       result[priority].push(ticket);
       return result;
     },
-    { 'No priority': [], Low: [], Medium: [], High: [], Urgent: [] }
+    { 'No priority': [], Urgent: [], High: [], Medium: [], Low: []}
   );
 
   return groups;

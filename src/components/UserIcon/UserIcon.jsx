@@ -10,11 +10,9 @@ const UserIcon = ({ name, available }) => {
   }, [name]);
 
   return (
-    <div className='usericon-wrapper'>
-      <div className='usericon-initials'>{text}</div>
-      <div
-        className={`usericon-status ${available ? 'usericon-available' : ''}`}
-      ></div>
+    <div className='usericon-container'>
+      <div className='usericon-text'>{text}</div>
+      <div className={`user-status ${available ? 'available' : ''}`}></div>
     </div>
   );
 };

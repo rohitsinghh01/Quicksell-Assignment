@@ -1,4 +1,4 @@
-.usericon-wrapper {
+.usericon-container {
     display: grid;
     place-items: center;
     font-size: 0.5rem;
@@ -10,7 +10,7 @@
     position: relative;
 }
 
-.usericon-wrapper .usericon-status {
+.usericon-container .user-status {
     position: absolute;
     bottom: -0.125rem;
     right: -0.125rem;
@@ -21,6 +21,6 @@
     border-radius: 9999px;
 }
 
-.usericon-wrapper .usericon-status.usericon-available {
+.usericon-container .user-status.available {
     background-color: #e8b602;
-}
+}    
