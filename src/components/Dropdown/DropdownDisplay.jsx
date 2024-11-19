@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import './dropdown.css';
-import { LuSettings2 } from 'react-icons/lu';
-import { BiChevronDown } from 'react-icons/bi';
+import { ReactComponent as Display } from '../../assests/Icons/Display.svg'; 
+import { ReactComponent as Down } from '../../assests/Icons/down.svg'; 
 
 const DropdownDisplay = ({ group, setGroup, order, setOrder }) => {
   const componentRef = useRef(null);
@@ -32,9 +32,9 @@ const DropdownDisplay = ({ group, setGroup, order, setOrder }) => {
   return (
     <div className='dropdown-wrapper' ref={componentRef}>
       <div className='dropdown-header' onClick={openDropdown}>
-        <LuSettings2 color='#6b6f76' />
+        <Display />
         <div className='dropdown-title'>Display</div>
-        <BiChevronDown color='#6b6f76' />
+        <Down/>
       </div>
       <div
         className={`dropdown-menu ${visible ? 'dropdown-menu-visible' : ''}`}
